@@ -6,6 +6,7 @@
 --accent-color:#4D5AE5;
 --footer-text-color:#F4F4FD;
 --border-color-filter:#E7E9FC;
+--transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* *{
     outline: 1px solid tomato;
@@ -151,8 +152,10 @@ img{
     display: flex;
     gap: 40px;
 }
+.current
 /* ============/HEADER============ */
 /* ============HERO============ */
+
 .hero-section {
     margin: 0 auto;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/bg-hero.jpg);
@@ -163,6 +166,7 @@ img{
     padding-top: 188px;
     padding-bottom: 188px;
 }
+
 .hero-title {
         font-weight: 700;
         font-size: 56px;
@@ -416,7 +420,7 @@ img{
 ============PORTFOLIO.HTML============
 = 
 */
-/* FILTER BTN */
+/* ============FILTER BTN============ */
 .portfolio-section{
     padding-top: 96px;
     padding-bottom: 120px;
@@ -450,8 +454,8 @@ img{
         0px 2px 1px rgba(0, 0, 0, 0.08),
         0px 2px 2px rgba(0, 0, 0, 0.12);;
 }
-/* /FILTER BTN */
-/* PROJECTS */
+/* ============/FILTER BTN============ */
+/* ============PROJECTS============ */
 .portfolio-list{
     display: flex;
     justify-content: space-between;
@@ -490,4 +494,60 @@ img{
     margin-bottom: 8px;
 
 }
-/* /PROJECTS */
+/* ============/PROJECTS============ */
+
+/* ============MODAL WINDOW============ */
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(46, 47, 66, 0.4);
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition-dur-and-func), visibility var(--transition-dur-and-func);
+}
+.backdrop.is-hidden{
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 408px;
+    height: 584px;
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: transform var(--transition-dur-and-func), opacity var(--transition-dur-and-func);
+}
+.modal-btn{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+
+    background: var(--border-color-filter);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+
+}
+.backdrop.backdrop.is-hidden .modal{
+    transform: translate(-50%, -50%) scale(0.6) ;
+    opacity: 0;
+}
