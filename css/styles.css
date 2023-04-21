@@ -163,7 +163,9 @@ img{
 
     border-radius: 2px;
 }
-
+.current{
+    color: var(--hover-color);
+}
 .nav-link.current::after{
     background-color: var(--hover-color);
 }
@@ -544,16 +546,14 @@ img{
     color: var(--footer-text-color);
 
     transform: translateY(100%);
-    opacity: 0;
-    transition: transform var(--transition-dur-and-func), opacity var(--transition-dur-and-func);
+    transition: transform var(--transition-dur-and-func);
+    padding: 40px 32px;
 }
 .card-item:hover .overlay,
 .portfolio-list .link:focus .overlay{
     transform: translateY(0);
-    opacity: 1;
 }
 .overlay-text{
-    padding: 40px 32px;
     line-height: 1.5;
 }
 /* ============/PROJECTS============ */
@@ -590,8 +590,7 @@ img{
     border-radius: 4px;
 
     transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-    transition: transform var(--transition-dur-and-func), opacity var(--transition-dur-and-func);
+    transition: transform var(--transition-dur-and-func);
 }
 .modal-btn{
     position: absolute;
